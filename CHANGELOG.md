@@ -22,5 +22,10 @@
 * v1.1.6 [2019-12-03]: Fixed variable value assignment from "==" to "=" in switch.py. Example:
 "self.draw4 == False" to "self.draw4 = False"
 
+* v1.1.7 [2019-12-03]: Fixed closed parentheses missing in players.py 
+("sorted_choices = sorted(choices, key=score, reverse=True)")
+
+
+
 
 

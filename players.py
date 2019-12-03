@@ -47,7 +47,7 @@ class SmartAI(SimpleAI):
 
             return offset.get(card.value, in_suit)
 
-        sorted_choices = sorted(choices, key=score, reverse=True
+        sorted_choices = sorted(choices, key=score, reverse=True)
         candidate = sorted_choices[0]
         return candidate if score(candidate) > -2 else None
 
