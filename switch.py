@@ -27,7 +27,7 @@ class Switch:
     self.draw4 -- bool indicating that the next player must draw 4 cards
     self.direction -- int, either 1 or -1 indicating direction of play.
     """
-    def run_game(self):
+    def __run_game__(self):
         """Run rounds of the game until player decides to exist."""
         UI.say_welcome()
         # show game menu and run rounds until player decides to exit
@@ -37,12 +37,12 @@ class Switch:
             if choice == 1:
                 # set up self.players before round starts
                 self.players = UI.get_player_information(MAX_PLAYERS)
-                self.run_round()
+                self.__run_round__()
             else:
                 break
         UI.say_goodbye()
 
-    def run_round(self):
+    def __run_round__(self):
         """Runs a single round of switch.
 
         Contineously calls Switch.run_player for the current player,
@@ -50,12 +50,12 @@ class Switch:
         of play.
         """
         # deal cards etc.
-        self.setup_round()
+        self.__setup_round__()
 
         i = 0 # current player index
         while True:
             # process current player's turn 
-            won = self.run_player(self.players[i])
+            won = self.__run_player__(self.players[i])
             if won:
                 break
             else:
@@ -63,7 +63,7 @@ class Switch:
                 i = i+self.direction % len(self.players)
         UI.print_winner_of_game(self.players[i])
 
-    def setup_round(self):
+    def __setup_round__(self):
         """Initialize a round of switch.
 
         Sets the stock to a full shuffled deck of cards, initializes
@@ -77,14 +77,14 @@ class Switch:
         self.discards = [self.stock.pop()]
         # deal hands
         for player in self.players:
-            self.pick_up_card(player, HAND_SIZE)
+            self.__pick_up_card__(player, HAND_SIZE)
         # set game flags to initial value
         self.direction = 1
         self.skip = False
         self.draw2 = False
         self.draw4 = False
 
-    def run_player(self, player):
+    def __run_player__(self, player):
         """Process a single player's turn.
 
         Parameters:
@@ -107,12 +107,12 @@ class Switch:
             UI.print_message('{} is skipped.'.format(player.name))
         elif self.draw2:
             # draw two cards
-            picked = self.pick_up_card(player, 2)
+            picked = self.__pick_up_card__(player, 2)
             self.draw2 == False
             UI.print_message('{} draws {} cards.'.format(player.name, picked))
         elif self.draw4:
             # draw four cards
-            picked = self.pick_up_card(player, 4)
+            picked = self.__pick_up_card__(player, 4)
             self.draw4 == False
             UI.print_message('{} draws {} cards.'.format(player.name, picked))
 
@@ -121,24 +121,24 @@ class Switch:
         UI.print_player_info(player, top_card, hand_sizes)
 
         # determine discardable cards
-        discardable = [card for card in player.hand if self.can_discard]
+        discardable = [card for card in player.hand if self.__can_discard__]
 
         # have player select card
-        hands = self.get_normalized_hand_sizes(player)
+        hands = self.__get_normalized_hand_sizes__(player)
         card = player.select_card(discardable, hands) if discardable else None
 
         if card:
             # discard card and determine whether player has won
-            self.discard_card(player, card)
+            self.__discard_card__(player, card)
             # if all cards discarded, return True
             return not player.hand
         else:
             # draw and (potentially) discard
-            self.draw_and_discard(player)
+            self.__draw_and_discard__(player)
             # player still has cards and the game goes on
             return False
 
-    def pick_up_card(self, player, n=1):
+    def __pick_up_card__(self, player, n=1):
         """Pick card from stock and add to player hand.
 
         Parameters:
@@ -174,7 +174,7 @@ class Switch:
             player.hand.append(card)
         return i
 
-    def can_discard(self, card):
+    def __can_discard__(self, card):
         """Return whether card can be discarded onto discard pile."""
         # queens and aces can always be discarded
         if card.value in 'QA':
@@ -184,7 +184,7 @@ class Switch:
             top_card = self.discards[-1]
             return card.suit == top_card.suit and card.value == top_card.value
 
-    def draw_and_discard(self, player):
+    def __draw_and_discard__(self, player):
         """Draw a card from stock and discard it if possible.
 
         Parameters:
@@ -196,17 +196,17 @@ class Switch:
         """
         UI.print_message("No matching card. Drawing ...")
         # return if no card could be picked
-        if not self.pick_up_card(player):
+        if not self.__pick_up_card__(player):
             return
         # discard picked card if possible
         card = player.hand[-1]
-        if self.can_discard(card):
-            self.discard_card(player, card)
+        if self.__can_discard__(card):
+            self.__discard_card__(player, card)
         # otherwise inform the player
         elif not player.is_ai:
             UI.print_discard_result(False, card)
 
-    def discard_card(self, player, card):
+    def __discard_card__(self, player, card):
         """Discard card and apply its game effects.
 
         Parameters:
@@ -238,9 +238,9 @@ class Switch:
         elif card.value == 'J':
             others = [p for p in self.players if p is not player]
             choice = player.ask_for_swap(others)
-            self.swap_hands(player, choice)
+            self.__swap_hands__(player, choice)
 
-    def get_normalized_hand_sizes(self, player):
+    def __get_normalized_hand_sizes__(self, player):
         """Return list of hand sizes in normal form
 
         Parameter:
@@ -264,9 +264,11 @@ class Switch:
             sizes.insert(0, sizes.pop())
         return sizes
 
-    def swap_hands(self, p1, p2):
+    def __swap_hands__(self, p1, p2):
         """Exchanges the hands of the two given players."""
         p1.hand, p2.hand = p2.hand, p1.hand
         UI.print_message('{} swaps hands with {}.'.format(p1.name, p2.name))
 
 
+game = Switch()
+game.__run_game__()
