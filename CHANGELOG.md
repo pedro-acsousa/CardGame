@@ -25,6 +25,9 @@
 * v1.1.7 [2019-12-03]: Fixed closed parentheses missing in players.py 
 ("sorted_choices = sorted(choices, key=score, reverse=True)")
 
+* v1.1.8 [2019-12-03]: Fixed import statement in switch.py and players.py "import user_interface as ui". Variable
+name should be lowercase. 
+
 
 
 

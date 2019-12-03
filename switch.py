@@ -1,4 +1,4 @@
-import user_interface as UI
+import user_interface as ui
 import random
 
 from cards import generate_deck
@@ -29,18 +29,18 @@ class Switch:
     """
     def __run_game__(self):
         """Run rounds of the game until player decides to exist."""
-        UI.say_welcome()
+        ui.say_welcome()
         # show game menu and run rounds until player decides to exit
         while True:
-            UI.print_game_menu()
-            choice = UI.get_int_input(1, 2)
+            ui.print_game_menu()
+            choice = ui.get_int_input(1, 2)
             if choice == 1:
                 # set up self.players before round starts
-                self.players = UI.get_player_information(MAX_PLAYERS)
+                self.players = ui.get_player_information(MAX_PLAYERS)
                 self.__run_round__()
             else:
                 break
-        UI.say_goodbye()
+        ui.say_goodbye()
 
     def __run_round__(self):
         """Runs a single round of switch.
@@ -61,7 +61,7 @@ class Switch:
             else:
                 # advance player index depending on self.direction
                 i = i+self.direction % len(self.players)
-        UI.print_winner_of_game(self.players[i])
+        ui.print_winner_of_game(self.players[i])
 
     def __setup_round__(self):
         """Initialize a round of switch.
@@ -104,21 +104,21 @@ class Switch:
         if self.skip:
             # return without performing any discard
             self.skip = False
-            UI.print_message('{} is skipped.'.format(player.name))
+            ui.print_message('{} is skipped.'.format(player.name))
         elif self.draw2:
             # draw two cards
             picked = self.__pick_up_card__(player, 2)
             self.draw2 = False
-            UI.print_message('{} draws {} cards.'.format(player.name, picked))
+            ui.print_message('{} draws {} cards.'.format(player.name, picked))
         elif self.draw4:
             # draw four cards
             picked = self.__pick_up_card__(player, 4)
             self.draw4 = False
-            UI.print_message('{} draws {} cards.'.format(player.name, picked))
+            ui.print_message('{} draws {} cards.'.format(player.name, picked))
 
         top_card = self.discards[-1]
         hand_sizes = [len(p.hand) for p in self.players]
-        UI.print_player_info(player, top_card, hand_sizes)
+        ui.print_player_info(player, top_card, hand_sizes)
 
         # determine discardable cards
         discardable = [card for card in player.hand if self.__can_discard__]
@@ -161,13 +161,13 @@ class Switch:
             if not self.stock:
                 # add back discarded cards (but not top card)
                 if len(self.discards) == 1:
-                    UI.print_message("All cards distributed")
+                    ui.print_message("All cards distributed")
                     return i-1
                 self.stock = self.discards[:-1]
                 del self.discards[:-1]
                 # shuffle stock
                 random.shuffle(self.stock)
-                UI.print_message("Discards are shuffled back.")
+                ui.print_message("Discards are shuffled back.")
             # draw stock card
             card = self.stock.pop()
             # and add to hand
@@ -194,7 +194,7 @@ class Switch:
         player's hand. If the card can be discarded, discard_card is
         called with the newly picked card.
         """
-        UI.print_message("No matching card. Drawing ...")
+        ui.print_message("No matching card. Drawing ...")
         # return if no card could be picked
         if not self.__pick_up_card__(player):
             return
@@ -204,7 +204,7 @@ class Switch:
             self.__discard_card__(player, card)
         # otherwise inform the player
         elif not player.is_ai:
-            UI.print_discard_result(False, card)
+            ui.print_discard_result(False, card)
 
     def __discard_card__(self, player, card):
         """Discard card and apply its game effects.
@@ -217,7 +217,7 @@ class Switch:
         player.hand.remove(card)
         # and add to discard pile
         self.discards.append(card)
-        UI.print_discard_result(True, card)
+        ui.print_discard_result(True, card)
         # we are done if the player has no more cards in his hand
         if not player.hand:
             return
@@ -233,7 +233,7 @@ class Switch:
         # if card is a king, game direction reverses
         elif card.value == 'K':
             self.direction *= 1
-            UI.print_message("Game direction reversed.")
+            ui.print_message("Game direction reversed.")
         # if card is a jack, ask player with whom to swap hands
         elif card.value == 'J':
             others = [p for p in self.players if p is not player]
@@ -267,7 +267,7 @@ class Switch:
     def __swap_hands__(self, p1, p2):
         """Exchanges the hands of the two given players."""
         p1.hand, p2.hand = p2.hand, p1.hand
-        UI.print_message('{} swaps hands with {}.'.format(p1.name, p2.name))
+        ui.print_message('{} swaps hands with {}.'.format(p1.name, p2.name))
 
 
 game = Switch()

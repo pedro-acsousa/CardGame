@@ -1,5 +1,5 @@
 import random
-import user_interface as UI
+import user_interface as ui
 
 
 class Player:
@@ -10,10 +10,10 @@ class Player:
         self.hand = []
 
     def select_card(self, choices, _):
-        return UI.select_card(choices)
+        return ui.select_card(choices)
 
     def ask_for_swap(self, others):
-        return UI.select_player(others)
+        return ui.select_player(others)
 
 
 class SimpleAI:
