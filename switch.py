@@ -45,7 +45,7 @@ class Switch:
     def __run_round__(self):
         """Runs a single round of switch.
 
-        Contineously calls Switch.run_player for the current player,
+        Continuously calls Switch.run_player for the current player,
         and advances the current player depending on current direction
         of play.
         """

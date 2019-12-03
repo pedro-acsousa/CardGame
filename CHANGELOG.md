@@ -11,3 +11,6 @@
   (in switch.py)
 
 * v1.1.2 [2019-11-20]: Fixed typo "discarded" in docsting of class switch
+
+* v1.1.3 [2019-11-20]: Fixed typo "Continuously" in docsting of function "run_round"
+
