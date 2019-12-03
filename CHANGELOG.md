@@ -8,9 +8,11 @@
   This version is known to contain some bugs.
 
 * v1.1.1 [2019-11-20]: All relevant functions were made private in this version, to ensure encapsulation
-  (in switch.py)
+  (in switch.py).
 
-* v1.1.2 [2019-11-20]: Fixed typo "discarded" in docsting of class switch
+* v1.1.2 [2019-11-20]: Fixed typo "discarded" in docsting of class switch.
 
-* v1.1.3 [2019-11-20]: Fixed typo "Continuously" in docsting of function "run_round"
+* v1.1.3 [2019-11-20]: Fixed typo "Continuously" in docsting of function "run_round".
+
+* v1.1.4 [2019-11-20]: Functions in test_switch are now private and methods are accessible
 
