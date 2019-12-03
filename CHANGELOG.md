@@ -7,15 +7,20 @@
 * v1.1.0 [2019-10-25]: First major release.
   This version is known to contain some bugs.
 
-* v1.1.1 [2019-11-20]: All relevant functions were made private in this version, to ensure encapsulation
+* v1.1.1 [2019-12-03]: All relevant functions were made private in this version, to ensure encapsulation
   (in switch.py).
 
-* v1.1.2 [2019-11-20]: Fixed typo "discarded" in docsting of class switch.
+* v1.1.2 [2019-12-03]: Fixed typo "discarded" in docsting of class switch.
 
-* v1.1.3 [2019-11-20]: Fixed typo "Continuously" in docsting of function "run_round".
+* v1.1.3 [2019-12-03]: Fixed typo "Continuously" in docsting of function "run_round".
 
-* v1.1.4 [2019-11-20]: Functions in test_switch are now private and methods are accessible
+* v1.1.4 [2019-12-03]: Functions in test_switch are now private and methods are accessible
 
-* v1.1.5 [2019-11-20]: Fixed inline comment spacing. It now has at least 2 spaces as conventional. Changed
+* v1.1.5 [2019-12-03]: Fixed inline comment spacing. It now has at least 2 spaces as conventional. Changed
 "i = 0  #current player index" 
+
+* v1.1.6 [2019-12-03]: Fixed variable value assignment from "==" to "=" in switch.py. Example:
+"self.draw4 == False" to "self.draw4 = False"
+
+
 
