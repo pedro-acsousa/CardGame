@@ -56,14 +56,14 @@ def convert_to_int(string):
 
 
 # methods get information from user
-def get_int_input(min, max):
+def get_int_input(minimum, maximum):
     """get int value from user"""
     choice = -1
-    while choice < min or choice > max:
+    while choice < minimum or choice > maximum:
         print("> ", end="")
         choice = convert_to_int(input())
-        if choice < min or choice > max:
-            print(f"Try again: Input should be an integer between [{min:d}-{max:d}]")
+        if choice < minimum or choice > maximum:
+            print(f"Try again: Input should be an integer between [{minimum:d}-{maximum:d}]")
     return choice
 
 
@@ -92,10 +92,10 @@ def get_player_information(MAX_PLAYERS):
     ai_names = ['Angela', 'Bart', 'Charly', 'Dorothy']
 
     # how many AI players? ensure there are at least 2 players
-    min = 1 if (len(players) == 1) else 0
-    max = MAX_PLAYERS - no_of_players
-    print(f"\nHow many ai players [{min:d}-{max:d}]:")
-    no_of_players = get_int_input(min, max)
+    minimum = 1 if (len(players) == 1) else 0
+    maximum = MAX_PLAYERS - no_of_players
+    print(f"\nHow many ai players [{minimum:d}-{maximum:d}]:")
+    no_of_players = get_int_input(minimum, maximum)
     # for each ai player, get name
     for name in ai_names[:no_of_players]:
         if random.choice([True, False]):

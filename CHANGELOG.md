@@ -28,6 +28,8 @@
 * v1.1.8 [2019-12-03]: Fixed import statement in switch.py and players.py "import user_interface as ui". Variable
 name should be lowercase. 
 
+* v1.1.9 [2019-12-03]: Fixed name python function name shadowing in file user_interface.py. Used "minimum" instead of
+"min" and maximum instead of "max".
 
 
 
