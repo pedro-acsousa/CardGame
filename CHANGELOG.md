@@ -16,3 +16,6 @@
 
 * v1.1.4 [2019-11-20]: Functions in test_switch are now private and methods are accessible
 
+* v1.1.5 [2019-11-20]: Fixed inline comment spacing. It now has at least 2 spaces as conventional. Changed
+"i = 0  #current player index" 
+
