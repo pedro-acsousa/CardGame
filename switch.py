@@ -60,7 +60,7 @@ class Switch:
                 break
             else:
                 # advance player index depending on self.direction
-                i = i+self.direction % len(self.players)
+                i = self.direction % len(self.players) - i
         ui.print_winner_of_game(self.players[i])
 
     def __setup_round__(self):
