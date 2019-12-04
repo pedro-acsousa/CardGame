@@ -61,5 +61,6 @@ Now the order is correct.
 In other words, checks every card in the player's hand against the top card to determine which cards can be discarded in
 that turn. "discardable = [card for card in player.hand if self.__can_discard__(card)]"
 
+* v1.1.19 [2019-12-04]:  Updated game direction to new working formula "i = (i+self.direction) % len(self.players)"
 
 
