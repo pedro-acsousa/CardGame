@@ -54,3 +54,6 @@ the correct number of cards. "values = '2 3 4 5 6 7 8 9 10 J Q K A'.split()"
 * v1.1.16 [2019-12-04]: Fixed condition from AND to OR to discard all cards that have the same value OR the same suit.
 Before only discarded if both conditions were true. "card.suit == top_card.suit or card.value == top_card.value"
 
+* v1.1.17 [2019-12-04]: Fixed list rotation so that the player plays first in "sizes = sizes[idx:] + sizes[:idx]".
+Now the order is correct.
+

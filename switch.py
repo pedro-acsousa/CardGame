@@ -257,7 +257,7 @@ class Switch:
         sizes = [len(p.hand) for p in self.players]
         idx = self.players.index(player)
         # rotate list so that given player is first
-        sizes = sizes[:idx] + sizes[idx:]
+        sizes = sizes[idx:] + sizes[:idx]
         # if direction is counter-clockwise, reverse the order and
         # bring given player back to the front
         if self.direction == -1:
