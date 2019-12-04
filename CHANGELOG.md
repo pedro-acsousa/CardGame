@@ -51,4 +51,6 @@ the King, testing Aces only. "assert s.can_discard(Card('♠', 'A'))"
 * v1.1.15 [2019-12-04]: Fixed deck size in file cards.py. Before it had duplicated aces (2 of each suit). It now has
 the correct number of cards. "values = '2 3 4 5 6 7 8 9 10 J Q K A'.split()"
 
+* v1.1.16 [2019-12-04]: Fixed condition from AND to OR to discard all cards that have the same value OR the same suit.
+Before only discarded if both conditions were true. "card.suit == top_card.suit or card.value == top_card.value"
 

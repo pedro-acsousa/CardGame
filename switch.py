@@ -156,6 +156,7 @@ class Switch:
         sufficient, the maximum possible number of cards is picked.
         """
         # repeat n times
+
         for i in range(1, n+1):
             # if no more card in stock pile
             if not self.stock:
@@ -182,7 +183,7 @@ class Switch:
         # otherwise either suit or value has to match with top card
         else:
             top_card = self.discards[-1]
-            return card.suit == top_card.suit and card.value == top_card.value
+            return card.suit == top_card.suit or card.value == top_card.value
 
     def __draw_and_discard__(self, player):
         """Draw a card from stock and discard it if possible.
