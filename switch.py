@@ -121,7 +121,7 @@ class Switch:
         ui.print_player_info(player, top_card, hand_sizes)
 
         # determine discardable cards
-        discardable = [card for card in player.hand if self.__can_discard__]
+        discardable = [card for card in player.hand if self.__can_discard__(card)]
 
         # have player select card
         hands = self.__get_normalized_hand_sizes__(player)

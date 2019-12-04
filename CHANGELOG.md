@@ -57,3 +57,9 @@ Before only discarded if both conditions were true. "card.suit == top_card.suit 
 * v1.1.17 [2019-12-04]: Fixed list rotation so that the player plays first in "sizes = sizes[idx:] + sizes[:idx]".
 Now the order is correct.
 
+* v1.1.18 [2019-12-04]:  Updated variable to enter the function can_discard with the argument of the player's hand.
+In other words, checks every card in the player's hand against the top card to determine which cards can be discarded in
+that turn. "discardable = [card for card in player.hand if self.__can_discard__(card)]"
+
+
+
