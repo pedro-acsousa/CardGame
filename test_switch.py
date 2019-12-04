@@ -94,7 +94,7 @@ def test_can_discard__allows_ace():
     s = mock_setup_round([], '', '♣5')
     assert s.__can_discard__(Card('♢', 'A'))
     assert s.__can_discard__(Card('♡', 'A'))
-    assert s.__can_discard__(Card('♠', 'A'))
+    assert s.__can_discard__(Card('♠', 'K'))
 
 
 def test_can_discard__allows_queen():
