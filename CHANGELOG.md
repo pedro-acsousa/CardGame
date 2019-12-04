@@ -40,5 +40,9 @@ switch.py. test_switch updated some methods privacy.
 * v1.1.12 [2019-12-03]: Fixed method that reverses game direction through "self.direction *= -1". The direction is 
 now reversed if any player selects the card with value K.
 
+* v1.1.13 [2019-12-04]: Fixed a section of the game according to rules. Before if a player selected a card with value 4
+in the next turn the player had to draw 2. According to rules, this happens when the selected card's value is 2 and not 
+4: "if card.value == '2' ".
+
 
 

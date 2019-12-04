@@ -225,7 +225,7 @@ class Switch:
         elif card.value == '8':
             self.skip = True
         # if card is a two, next player needs to draw two
-        elif card.value == '4':
+        elif card.value == '2':
             self.draw2 = True
         # if card is a queen, next player needs to draw four
         elif card.value == 'Q':
