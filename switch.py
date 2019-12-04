@@ -232,7 +232,7 @@ class Switch:
             self.draw4 = True
         # if card is a king, game direction reverses
         elif card.value == 'K':
-            self.direction *= 1
+            self.direction *= -1
             ui.print_message("Game direction reversed.")
         # if card is a jack, ask player with whom to swap hands
         elif card.value == 'J':

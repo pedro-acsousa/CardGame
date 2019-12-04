@@ -37,6 +37,8 @@ switch.py. test_switch updated some methods privacy.
 * v1.1.11 [2019-12-03]: Updated initial card dealing method to provide 7 cards to players instead of 6 (range updated)
 "for i in range(1, n+1):".
 
+* v1.1.12 [2019-12-03]: Fixed method that reverses game direction through "self.direction *= -1". The direction is 
+now reversed if any player selects the card with value K.
 
 
 
