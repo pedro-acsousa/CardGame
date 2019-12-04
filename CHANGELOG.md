@@ -48,5 +48,7 @@ in the next turn the player had to draw 2. According to rules, this happens when
 Test: "test_can_discard__allows_ace" The test was wrong as it tested 2 different Aces and a King. It no longer tests
 the King, testing Aces only. "assert s.can_discard(Card('♠', 'A'))"
 
+* v1.1.15 [2019-12-04]: Fixed deck size in file cards.py. Before it had duplicated aces (2 of each suit). It now has
+the correct number of cards. "values = '2 3 4 5 6 7 8 9 10 J Q K A'.split()"
 
 
