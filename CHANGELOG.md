@@ -44,9 +44,5 @@ now reversed if any player selects the card with value K.
 in the next turn the player had to draw 2. According to rules, this happens when the selected card's value is 2 and not 
 4: "if card.value == '2' ".
 
-* v1.1.14 [2019-12-04]: Fixed a test which checks if aces are always allowed to be discarded.
-Test: "test_can_discard__allows_ace" The test was wrong as it tested 2 different Aces and a Queen. It no longer tests
-the Queen, testing Aces only. "assert s.can_discard(Card('♠', 'A'))"
-
 
 
