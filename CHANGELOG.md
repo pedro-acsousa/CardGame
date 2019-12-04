@@ -63,4 +63,8 @@ that turn. "discardable = [card for card in player.hand if self.__can_discard__(
 
 * v1.1.19 [2019-12-04]:  Updated game direction to new working formula "i = (i+self.direction) % len(self.players)"
 
+* v1.1.20 [2019-12-04]:  Fixed skip when played card has value 8. Before it flagged to skip but the player
+ was not actually skipped. This was achieved through the return statement "return self.skip". All errors and bugs 
+ are now resolved.
+
 
