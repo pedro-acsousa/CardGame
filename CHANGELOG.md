@@ -32,7 +32,10 @@ name should be lowercase.
 "min" and maximum instead of "max".
 
 * v1.1.10 [2019-12-03]: Fixed player index out of bounds error to "i = self.direction % len(self.players) - i" in
-switch.py. test_switch updated some methods privacy
+switch.py. test_switch updated some methods privacy.
+
+* v1.1.11 [2019-12-03]: Updated initial card dealing method to provide 7 cards to players instead of 6 (range updated)
+"for i in range(1, n+1):".
 
 
 

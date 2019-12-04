@@ -156,7 +156,7 @@ class Switch:
         sufficient, the maximum possible number of cards is picked.
         """
         # repeat n times
-        for i in range(1, n):
+        for i in range(1, n+1):
             # if no more card in stock pile
             if not self.stock:
                 # add back discarded cards (but not top card)
