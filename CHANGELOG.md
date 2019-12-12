@@ -66,5 +66,7 @@ that turn. "discardable = [card for card in player.hand if self.__can_discard__(
 * v1.1.20 [2019-12-04]:  Fixed skip when played card has value 8. Before it flagged to skip but the player
  was not actually skipped. This was achieved through the return statement "return self.skip". All errors and bugs 
  are now resolved.
+ 
+ * v1.1.21 [2019-12-12]: Readme File updated to show how to run the program and pytest.
 
 

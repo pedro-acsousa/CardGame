@@ -37,15 +37,16 @@ proceeds with the next player.
 If there is no more card in the stock pile, all discards but the top
 card are shuffled and placed face down to form a new stock pile.
 
-
+#README UPDATE
 ## Running the game
 
 Start switch on the command line with
 
-	$ python switch.py
+	$ pipenv run switch.py
 
-Or press `Run` in your IDE.
 
 Run the test suite with
 
-	$ python -m pytest
+	$ pipenv run pytest -s
+	
+	Click option 2 (Exit game) then pytest runs
